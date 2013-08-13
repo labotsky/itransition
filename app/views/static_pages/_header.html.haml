@@ -1,0 +1,18 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      =link_to "Itransition", root_path, class: "brand"
+      .nav-collapse.collapse
+        %p.navbar-text.pull-right
+          Logged in as
+          %a.navbar-link{:href => "#"} Username
+        %ul.nav
+          / cp : helper in application_helper.rb, add style to 'li'
+          %li{class: "#{cp signin_path}"}
+            = link_to "Sign In", signin_path
+          %li{class: "#{cp signup_path}"}
+            = link_to "Sign Up", signup_path

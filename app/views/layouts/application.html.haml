@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %title Itra
+    = stylesheet_link_tag    "application", :media => "all"
+    = yield :sign
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    = yield

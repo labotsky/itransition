@@ -16,3 +16,19 @@
             = link_to "Sign In", signin_path
           %li{class: "#{cp signup_path}"}
             = link_to "Sign Up", signup_path
+          %li#fat-menu.dropdown          
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %span.img_ava_top
+                Language
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to "English", '#'
+              %li= link_to "Russian", '#'
+          %li#fat-menu.dropdown          
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %span.img_ava_top
+                Theme
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to "Dark", '#'
+              %li= link_to "Light", '#'                                   

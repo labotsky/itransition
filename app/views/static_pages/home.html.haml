@@ -14,13 +14,27 @@
             %a{:href => "#"} Category 3
           %li
             %a{:href => "#"} Category 4
+      .well.sidebar-nav      
+        %ul.nav.nav-list  
+          %li.nav-header Your Poems
+          %li.active
+            %a{:href => "#"} Poems 1
+          %li
+            %a{:href => "#"} Poems 2
+          %li
+            %a{:href => "#"} Poems 3
+          %li
+            %a{:href => "#"} Poems 4            
 
     .span9
       .hero-unit.welcome
-        %h1 Welcome to the web site!
-        %p This simple web site. You can add your own poems and chapters to them, edit them, and delete them. Also, you can appreciate the poem to other users. Search for him and to export to pdf format.
-        %p
-          %a.btn.btn-success.btn-large{:href => "#"} Learn more
+        -if user_signed_in?
+          %h1 Welcome, #{current_user.email}!
+        -else
+          %h1 Welcome to the web site!
+          %p This simple web site. You can add your own poems and chapters to them, edit them, and delete them. Also, you can appreciate the poem to other users. Search for him and to export to pdf format.
+          %p
+            %a.btn.btn-success.btn-large{:href => "#"} Learn more            
       .post-home
         %h2 Heading
         %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.

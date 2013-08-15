@@ -14,3 +14,4 @@ end
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
+gem 'devise'

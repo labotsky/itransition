@@ -3,19 +3,7 @@
 .container-fluid
   .row-fluid
     .span3
-      .well.sidebar-nav
-        %ul.nav.nav-list
-          %li.nav-header Category
-          - Category.all.each do |cat|
-            %li
-              =link_to cat.name, cat
-
-      .well.sidebar-nav      
-        %ul.nav.nav-list  
-          %li.nav-header All Poems
-          - Poem.all.each do |p|
-            %li
-              =link_to p.name, p
+      = render "static_pages/left"
     .span9
       .hero-unit.welcome
         -if user_signed_in?

@@ -1,12 +1,18 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @category.name
-%p
-  %b Description:
-  = @category.description
-
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+= render "static_pages/header"
+.container-fluid
+  .row-fluid
+    .span3
+      = render "static_pages/left"
+    .span9
+      %h1.category
+        Category:
+        =@category.name   
+      -@category.poems.each do |poem|      
+        .post-home
+          %h2=poem.name
+          %p=poem.description
+          %p           
+            =link_to "View", poem_path(poem), class: "btn btn-small btn-success"                      
+  %hr/
+  %footer
+    %p © Labotsky Sergey 2013

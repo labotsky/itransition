@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_categories
     make_poems
+    make_category_poem
   end
 end
 
@@ -23,4 +24,16 @@ def make_poems
     body = Faker::Lorem.paragraph(5)  
     Poem.create(name:name, description: description, body: body) 
   end
+end
+
+def make_category_poem
+  print '.'  
+  poems = Poem.all
+  categories = Category.all
+  30.times do |n|
+    p = poems[1 + Random.rand(29)]
+    c = categories[1 + Random.rand(4)]
+    c.poems << p
+  end
+  puts
 end

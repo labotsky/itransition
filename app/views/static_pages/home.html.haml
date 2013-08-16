@@ -6,26 +6,16 @@
       .well.sidebar-nav
         %ul.nav.nav-list
           %li.nav-header Category
-          %li.active
-            %a{:href => "#"} Category 1
-          %li
-            %a{:href => "#"} Category 2
-          %li
-            %a{:href => "#"} Category 3
-          %li
-            %a{:href => "#"} Category 4
+          - Category.all.each do |cat|
+            %li
+              =link_to cat.name, cat
+
       .well.sidebar-nav      
         %ul.nav.nav-list  
-          %li.nav-header Your Poems
-          %li.active
-            %a{:href => "#"} Poems 1
-          %li
-            %a{:href => "#"} Poems 2
-          %li
-            %a{:href => "#"} Poems 3
-          %li
-            %a{:href => "#"} Poems 4            
-
+          %li.nav-header All Poems
+          - Poem.all.each do |p|
+            %li
+              =link_to p.name, p
     .span9
       .hero-unit.welcome
         -if user_signed_in?

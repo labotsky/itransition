@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @poem.description
+%p
+  %b Body:
+  = @poem.body
+
+= link_to 'Edit', edit_poem_path(@poem)
+\|
+= link_to 'Back', poems_path

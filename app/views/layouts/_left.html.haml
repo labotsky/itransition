@@ -1,13 +1,14 @@
-.well.sidebar-nav.left
+.well.sidebar-nav.left{class: "#{cookies['theme']}"}
   %ul.nav.nav-list
     %li.nav-header Category
     -Category.all.each do |cat|
       %li
         =link_to cat do
           =cat.name
-          %span.badge.badge-info.pull-right= cat.poems.count
+          %span.badge.pull-right
+            = cat.poems.count
       .clear
-.well.sidebar-nav.left     
+.well.sidebar-nav.left{class: "#{cookies['theme']}"}     
   %ul.nav.nav-list  
     %li.nav-header All Poems
     - Poem.all.each do |p|

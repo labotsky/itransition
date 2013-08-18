@@ -1,8 +1,8 @@
 class PoemsController < ApplicationController
   before_filter :right_user, only: [:edit, :update, :destroy]
-
+  before_filter :authenticate_user!, except:[:show]
   def index
-    @poems = Poem.all
+    @poems = Poem.my_poems(current_user)
   end
 
   def show
@@ -29,7 +29,7 @@ class PoemsController < ApplicationController
   end
 
   def update
-    @poem = Poem.find(params[:id])
+    @poem = Poem.find(params[:id])   
     if @poem.update_attributes(params[:poem])
       redirect_to @poem
     end  

@@ -8,3 +8,8 @@
   %p
     %strong Body:
     = @poem.body
+  %p  
+    %strong Category:
+  %ul
+    - @poem.categories.each do |category|
+      %li=category.name  

@@ -15,5 +15,11 @@
     = f.label :body
     = f.text_area :body, rows: 10
   .actions
-    = button_tag class: "btn btn-small btn-info" do
-      <i class='icon-edit'></i> Update
+    %h2 Category:
+    - Category.all.each do |category|
+      %label.checkbox
+        = check_box_tag "poem[category_ids][]", category.id, @poem.categories.include?(category)
+        = category.name
+    %br    
+    = button_tag class: "btn btn-info" do
+      <i class='icon-edit'></i> Save

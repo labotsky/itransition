@@ -1,12 +1,10 @@
-%p#notice= notice
-
-%p
-  %b Description:
-  = @poem.description
-%p
-  %b Body:
-  = @poem.body
-
-= link_to 'Edit', edit_poem_path(@poem)
-\|
-= link_to 'Back', poems_path
+.span9.hero-unit
+  %p
+    %strong  Name:
+    = @poem.name
+  %p
+    %strong Description:
+    = @poem.description
+  %p
+    %strong Body:
+    = @poem.body

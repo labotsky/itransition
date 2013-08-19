@@ -19,3 +19,6 @@
             %i.icon-plus
             Add Paragraph
             %strong=poem.paragraphs.count
+          = link_to poem_path(poem, format: "pdf"), class: "btn btn-warning btn-small pull-right" do
+            %i.icon-download-alt
+            PDF            

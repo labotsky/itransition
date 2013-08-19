@@ -1,4 +1,7 @@
 .tools
+  = link_to paragraph_path(@paragraph, format: "pdf"), class: "btn btn-warning btn-mini" do
+    %i.icon-download-alt
+    PDF
   %b 
     Width:
   = button_tag class: "btn btn-info btn-mini", id: "width-plus" do

@@ -4,6 +4,12 @@ class ParagraphsController < ApplicationController
     @paragraph = Paragraph.find(params[:id])
     respond_to do |format|
       format.html { render layout: 'paragraph' }
+      format.pdf do
+        pdf = ParagraphPdf.new(@paragraph)
+        send_data pdf.render, filename: "#{@paragraph.name.delete(' ')}.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
     end
   end
 

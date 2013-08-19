@@ -1,6 +1,6 @@
 .span9
   %h1 My Poems
-  =link_to new_poem_path, class: "btn btn-large add_poem" do
+  =link_to new_poem_path, class: "btn add_poem" do
     %i.icon-plus
     Add Poem    
   -@poems.each do |poem|      
@@ -15,4 +15,8 @@
             Edit
           =link_to poem_path(poem), method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
             %i.icon-trash
-            Delete      
+            Delete
+          =link_to new_paragraph_path(poem: poem), class:"btn btn-small" do
+            %i.icon-plus
+            Add Paragraph
+            %strong=poem.paragraphs.count             

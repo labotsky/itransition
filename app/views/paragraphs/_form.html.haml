@@ -1,0 +1,18 @@
+= form_for @paragraph do |f|
+  - if @paragraph.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@paragraph.errors.count, "error")} prohibited this paragraph from being saved:"
+      %ul
+        - @paragraph.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :body
+    = f.text_area :body, rows: 10
+  -unless params[:poem].nil?  
+    = f.hidden_field :poem_id, value: params[:poem]
+  .actions
+    = button_tag class: "btn btn-info" do
+      <i class='icon-edit'></i> Save

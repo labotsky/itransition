@@ -12,4 +12,21 @@
     %strong Category:
   %ul
     - @poem.categories.each do |category|
-      %li=category.name  
+      %li=category.name
+-if @poem.paragraphs.any?      
+  .span9
+    %h2
+      %strong Paragraphs:
+    - @poem.paragraphs.each do |paragraph|
+      .post-home
+        %h2=paragraph.name
+        %p=paragraph.body[0..300]
+        %p           
+          =link_to "View", paragraph_path(paragraph), class: "btn btn-small"
+          -if user_signed_in? && @poem.user == current_user        
+            =link_to edit_paragraph_path(paragraph), class: "btn btn-small btn-info" do
+              %i.icon-edit
+              Edit
+            =link_to paragraph_path, method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
+              %i.icon-trash
+              Delete

@@ -1,5 +1,6 @@
 Itra::Application.routes.draw do
-  resources :categories
+  resources :paragraphs, except: [:index]
+  resources :categories, except: [:index]
   resources :poems
   devise_for :users
   get "static_pages/home"

@@ -7,6 +7,15 @@ class PoemsController < ApplicationController
 
   def show
     @poem = Poem.find(params[:id])
+    respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = PoemPdf.new(@poem)
+      send_data pdf.render, filename: "#{@poem.name.delete(' ')}.pdf",
+                            type: "application/pdf",
+                            disposition: "inline"
+    end
+end
   end
 
   def new

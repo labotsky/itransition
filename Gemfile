@@ -11,6 +11,12 @@ group :assets do
   gem 'less-rails'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
+
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'

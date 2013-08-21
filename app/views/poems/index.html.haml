@@ -10,7 +10,7 @@
       %p           
         =link_to "View", poem_path(poem), class: "btn btn-small"          
         -if user_signed_in? && poem.user == current_user
-          =link_to edit_poem_path(poem), class: "btn btn-small btn-info" do
+          =link_to edit_poem_path(poem), class: "btn btn-small btn-info " do
             %i.icon-edit
             Edit
           =link_to poem_path(poem), method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
@@ -20,6 +20,6 @@
             %i.icon-plus
             Add Paragraph
             %strong=poem.paragraphs.count
-          = link_to poem_path(poem, format: "pdf"), class: "btn btn-warning btn-small pull-right" do
+          = link_to poem_path(poem, format: "pdf"), class: "set btn btn-warning btn-small pull-right animated" do
             %i.icon-download-alt
             PDF

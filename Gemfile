@@ -9,6 +9,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'therubyracer'
   gem 'less-rails'
+  gem 'jquery-fileupload-rails'
 end
 
 group :development, :test do
@@ -23,3 +24,5 @@ gem 'haml-rails'
 gem 'devise'
 gem 'ffaker'
 gem 'prawn'
+gem 'carrierwave'
+gem "rmagick"

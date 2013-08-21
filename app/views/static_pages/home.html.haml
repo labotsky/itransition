@@ -1,7 +1,8 @@
 .span9
   .hero-unit.welcome
     -if user_signed_in?
-      %h1 Welcome, #{current_user.email}!
+      %h2 Welcome, #{current_user.email}!
+      = image_tag current_user.avatar_url(:thumb)
     -else
       %h1 Welcome to the web site!
       %p This simple web site. You can add your own poems and chapters to them, edit them, and delete them. Also, you can appreciate the poem to other users. Search for him and to export to pdf format.

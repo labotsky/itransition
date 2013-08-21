@@ -20,3 +20,10 @@ jQuery ->
     width = $('.paragraph').css('width')
     width = parseInt(width)
     $('.paragraph').css('width', width-10+'px')
+
+  $('.set').hide()  
+  $('.post-home').mouseover ->
+    $(this).find('.set').show() 
+    $(this).find('.set').removeClass('animated  lightSpeedOut').addClass('animated lightSpeedIn')
+  $('.post-home').mouseout ->
+    $(this).find('.set').removeClass('animated lightSpeedIn').addClass('animated  lightSpeedOut')        

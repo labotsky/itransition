@@ -10,5 +10,7 @@ class Poem < ActiveRecord::Base
   has_many :paragraphs
   belongs_to :user
 
+  make_flaggable :like
+
   scope :my_poems, ->(user) {where user_id: user}
 end

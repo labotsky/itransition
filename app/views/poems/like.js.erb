@@ -1,0 +1,1 @@
+$(".like-<%=@poem.id%>").html("<%=j toggle_like_button(@poem, current_user)%> <%=@poem.flaggings.count %>");

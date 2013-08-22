@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   mount_uploader :avatar, AvatarUploader
+  make_flagger
 end

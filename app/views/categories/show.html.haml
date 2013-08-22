@@ -2,24 +2,6 @@
   %h1.category
     Category:
     =@category.name   
-  -@category.poems.each do |poem|      
-    .post-home
-      %h2=poem.name
-      %p=poem.description
-      %p           
-        =link_to "View", poem_path(poem), class: "btn btn-small"
-        = link_to poem_path(poem, format: "pdf"), class: " set animated btn btn-warning btn-small pull-right" do
-          %i.icon-download-alt
-          PDF                              
-        -if user_signed_in? && poem.user == current_user
-          =link_to edit_poem_path(poem), class: "btn btn-small btn-info" do
-            %i.icon-edit
-            Edit
-          =link_to poem_path(poem), method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
-            %i.icon-trash
-            Delete                       
-          =link_to new_paragraph_path(poem: poem), class:"btn btn-small" do
-            %i.icon-plus
-            Add Paragraph
-            %strong=poem.paragraphs.count
+  -@category.poems.each do |poem|
+    =render 'poems/button', poem: poem
    

@@ -3,23 +3,5 @@
   =link_to new_poem_path, class: "btn add_poem" do
     %i.icon-plus
     Add Poem    
-  -@poems.each do |poem|      
-    .post-home
-      %h2=poem.name
-      %p=poem.description
-      %p           
-        =link_to "View", poem_path(poem), class: "btn btn-small"          
-        -if user_signed_in? && poem.user == current_user
-          =link_to edit_poem_path(poem), class: "btn btn-small btn-info " do
-            %i.icon-edit
-            Edit
-          =link_to poem_path(poem), method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
-            %i.icon-trash
-            Delete
-          =link_to new_paragraph_path(poem: poem), class:"btn btn-small" do
-            %i.icon-plus
-            Add Paragraph
-            %strong=poem.paragraphs.count
-          = link_to poem_path(poem, format: "pdf"), class: "set btn btn-warning btn-small pull-right animated" do
-            %i.icon-download-alt
-            PDF
+  -@poems.each do |poem|
+    =render 'button', poem: poem

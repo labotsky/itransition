@@ -1,4 +1,4 @@
-%li{class:"#{theme 'dark'}"}
-  = link_to "Dark", static_pages_theme_path(key:'dark')
-%li{class:"#{theme 'light'}"}
-  = link_to "Light", static_pages_theme_path(key:'light')  
+%li
+  = link_to "Dark", static_pages_theme_path(key:'dark'), remote: true
+%li
+  = link_to "Light", static_pages_theme_path(key:'light'), remote: true 

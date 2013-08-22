@@ -19,5 +19,6 @@ describe 'User Pages' do
     it {should have_link('Add Paragraph '+ @poem.paragraphs.count.to_s, href: new_paragraph_path(poem: @poem.id))}    
     it {should have_link('PDF', href: poem_path(@poem, format: 'pdf'))}
     it {should have_css('.post-home', count: 1)}
+    it {should have_css(".like-"+@poem.id.to_s)}     
   end
 end

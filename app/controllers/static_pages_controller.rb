@@ -1,9 +1,13 @@
 class StaticPagesController < ApplicationController
   def home
+    @poem = Poem.all
   end
 
   def theme
-    cookies.permanent[:theme] = params[:key]
-    redirect_to root_url
+    @key = params[:key]
+    cookies.permanent[:theme] = @key
+    respond_to do |format|
+      format.js
+    end
   end
 end

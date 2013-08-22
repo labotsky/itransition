@@ -26,3 +26,4 @@ gem 'ffaker'
 gem 'prawn'
 gem 'carrierwave'
 gem "rmagick"
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'

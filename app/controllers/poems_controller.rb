@@ -1,6 +1,8 @@
 class PoemsController < ApplicationController
+
   before_filter :right_user, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!, except:[:show]
+
   def index
     @poems = Poem.my_poems(current_user)
   end
@@ -51,6 +53,18 @@ class PoemsController < ApplicationController
 
   def right_user
     redirect_to root_url unless Poem.find(params[:id]).user == current_user
+  end
+
+  def like
+    @poem = Poem.find(params[:id])
+    if current_user.flagged?(@poem, :like)
+      current_user.unflag(@poem, :like)
+    else
+      current_user.flag(@poem, :like)
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
 end

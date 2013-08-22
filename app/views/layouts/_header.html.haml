@@ -10,20 +10,20 @@
       - if user_signed_in?
         %p.navbar-text.pull-right
           = image_tag current_user.avatar_url(:top)
-          Logged in as
+          =t('layouts.logged')
           = current_user.email
         %ul.nav
           / cp : helper in application_helper.rb, add style to 'li'
           %li{class: "#{cp new_user_session_path}"}
-            = link_to "Sign Out", destroy_user_session_path, method: :delete
+            = link_to t("layouts.signout"), destroy_user_session_path, method: :delete
           %li{class: "#{cp poems_path}"}
-            = link_to "My Poems", poems_path                   
+            = link_to t('layouts.mypoems'), poems_path                   
           = render 'layouts/menu'  
       - else
         %ul.nav
           / cp : helper in application_helper.rb, add style to 'li'
           %li{class: "#{cp new_user_session_path}"}
-            = link_to "Sign In", new_user_session_path
+            = link_to t("layouts.signin"), new_user_session_path
           %li{class: "#{cp new_user_registration_path}"}
-            = link_to "Sign Up", new_user_registration_path     
+            = link_to t("layouts.signup"), new_user_registration_path     
           = render 'layouts/menu'                         

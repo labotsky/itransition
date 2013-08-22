@@ -1,6 +1,6 @@
 .well.sidebar-nav.left
   %ul.nav.nav-list
-    %li.nav-header Category
+    %li.nav-header=t('layouts.left.category')
     -Category.all.each do |cat|
       %li
         =link_to cat do

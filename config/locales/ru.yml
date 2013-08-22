@@ -253,5 +253,53 @@ ru:
     errors:
       <<: *errors
   activerecord:
-    errors:
-      <<: *errors
+      models:
+        paragraph: 'Параграф'
+      attributes:
+        paragraph:  
+          name: 'Название'
+          description: 'Описание'
+          body: 'Тело'
+        poem:  
+          name: 'Название'
+          description: 'Описание'
+          body: 'Тело'             
+  static_pages:
+    wel: 'Добро пожаловать'
+    title: 'Добро пожаловать на сайт!'
+    body: 'Это простой веб-сайт. Вы можете добавлять поэмы и параграфы к ним, редактировать, и удалять их. Также вы можете оценивать поэмы других людей. Производить поиск по ним, и экспортировать их в pdf формат.'
+    button: 'Читать больше'      
+  layouts:
+    signin: 'Войти'
+    signup: 'Регистрация'
+    signout: 'Выйти'
+    lan: 'Язык'
+    theme: 'Тема'
+    th:
+      dark: 'Темная'
+      light: 'Светлая'
+    mypoems: 'Мои поэмы'
+    addpoems: 'Добавить поэму'
+    logged: 'Вошел как'        
+    left:
+      category: 'Категории'
+  button:
+    view: 'Посмотреть'
+    edit: 'Редактировать'
+    delete: 'Удалить'
+    addparagraph: 'Добавить параграф'
+    save: 'Сохранить'
+  poems:
+    new: 'Новая поэма'
+    edit: 'Редактировать поэму'      
+    name: 'Название:'
+    description: 'Описание:'
+    body: 'Тело:'
+    category: 'Категории:'
+    paragraphs: 'Параграфы:'    
+  tools:
+    width: 'Ширина:'
+    size: 'Размер шрифта:'
+  paragraph:
+    new: 'Новый параграф'
+    edit: 'Редактировать параграф'                                                    

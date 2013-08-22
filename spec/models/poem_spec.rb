@@ -8,15 +8,9 @@ describe Poem do
   subject {@poem}
   it {should respond_to(:name)}
   it {should respond_to(:body)}
-  it {should respond_to(:user_id)}
   it {should respond_to(:paragraphs)}
   it {should respond_to(:categories)}
   it {should be_valid}
-
-  describe 'when user_id is not present' do
-    before {@poem.user_id = nil}
-    it {should_not be_valid}
-  end
 
   describe 'when name is not present' do
     before {@poem.name = nil}

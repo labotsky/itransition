@@ -1,7 +1,7 @@
 .span9
-  %h1 My Poems
+  %h1=t('layouts.mypoems')
   =link_to new_poem_path, class: "btn add_poem" do
     %i.icon-plus
-    Add Poem    
+    =t('layouts.addpoems')   
   -@poems.each do |poem|
     =render 'button', poem: poem

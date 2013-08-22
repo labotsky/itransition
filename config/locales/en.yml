@@ -209,3 +209,43 @@ en:
   activerecord:
     errors:
       <<: *errors
+  static_pages:
+    wel: 'Welcome,'
+    title: 'Welcome to the web site!'
+    body: 'This simple web site. You can add your own poems and chapters to them, edit them, and delete them. Also, you can appreciate the poem to other users. Search for him and to export to pdf format.'
+    button: 'Learn more'
+  layouts:
+    signin: 'Sign In'
+    signup: 'Sign Up'
+    signout: 'Sign Out'
+    lan: 'Language'
+    theme: 'Theme'
+    th:
+      dark: 'Dark'
+      light: 'Light'
+    mypoems: 'My Poems'
+    addpoems: 'Add Poem'
+    logged: 'Logged in as'  
+    left:
+      category: 'Category'
+  button:
+    view: 'View'
+    edit: 'Edit'
+    delete: 'Delete'
+    addparagraph: 'Add Paragraph'
+    save: 'Save'
+  poems:
+    new: 'New Poem'
+    edit: 'Editing Poem'
+    name: 'Name:'
+    description: 'Description:'
+    body: 'Body:'
+    category: 'Categories:'
+    paragraphs: 'Paragraphs:'
+  tools:
+    width: 'Width:'
+    size: 'Size:'
+  paragraph:
+    new: 'New Paragraph'
+    edit: 'Editing Paragraph'          
+            

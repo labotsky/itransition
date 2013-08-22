@@ -1,32 +1,32 @@
 .span9.hero-unit
   %p
-    %strong  Name:
+    %strong=t('poems.name')
     = @poem.name
   %p
-    %strong Description:
+    %strong=t('poems.description')
     = @poem.description
   %p
-    %strong Body:
+    %strong=t('poems.body')
     = @poem.body
   %p  
-    %strong Category:
+    %strong=t('poems.category')
   %ul
     - @poem.categories.each do |category|
       %li=category.name
 -if @poem.paragraphs.any?      
   .span9
     %h2
-      %strong Paragraphs:
+      %strong=t('poems.paragraphs')
     - @poem.paragraphs.each do |paragraph|
       .post-home
         %h2=paragraph.name
         %p=paragraph.body[0..300]
         %p           
-          =link_to "View", paragraph_path(paragraph), class: "btn btn-small"
+          =link_to t('button.view'), paragraph_path(paragraph), class: "btn btn-small"          
           -if user_signed_in? && @poem.user == current_user        
             =link_to edit_paragraph_path(paragraph), class: "btn btn-small btn-info" do
               %i.icon-edit
-              Edit
+              =t('button.edit')
             =link_to paragraph_path, method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
               %i.icon-trash
-              Delete
+              =t('button.delete')

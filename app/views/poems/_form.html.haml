@@ -1,25 +1,25 @@
 = form_for @poem do |f|
   - if @poem.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@poem.errors.count, "error")} prohibited this poem from being saved:"
       %ul
         - @poem.errors.full_messages.each do |msg|
           %li= msg
   .field
-  = f.label :name
+  = f.label t('poems.name')
   = f.text_field :name, autofocus: true      
   .field
-    = f.label :description
+    = f.label t('poems.description')
     = f.text_area :description, rows: 5
   .field
-    = f.label :body
+    = f.label t('poems.body')
     = f.text_area :body, rows: 10
   .actions
-    %h2 Category:
+    %h2=t('poems.category')
     - Category.all.each do |category|
       %label.checkbox
         = check_box_tag "poem[category_ids][]", category.id, @poem.categories.include?(category)
         = category.name
     %br    
     = button_tag class: "btn btn-info" do
-      <i class='icon-edit'></i> Save
+      <i class='icon-edit'></i>
+      =t('button.save')

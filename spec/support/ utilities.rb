@@ -6,3 +6,4 @@ def sign_in(user)
   fill_in 'user_password', with: user.password
   find("input[type='submit']").click
 end
+

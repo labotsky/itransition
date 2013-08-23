@@ -3,8 +3,7 @@ class Poem < ActiveRecord::Base
 
   validates :name, presence: true
   validates :body, presence: true
-  validates :description, presence: true
- 
+  validates :description, presence: true 
 
   has_and_belongs_to_many :categories
   has_many :paragraphs

@@ -1,5 +1,5 @@
 jQuery ->
-
+  $('#poem_tag_ids').chosen()
   $('#size-plus').click ->
     size = $('.paragraph p').css('font-size')
     line = $('.paragraph p').css('line-height')

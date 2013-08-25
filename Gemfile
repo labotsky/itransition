@@ -29,3 +29,4 @@ gem 'carrierwave'
 gem "rmagick"
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 gem 'thinking-sphinx'
+gem 'chosen-rails'

@@ -13,6 +13,9 @@
   .field
     = f.label t('poems.body')
     = f.text_area :body, rows: 10
+  .field
+    = f.label :tag_ids, "Tags"
+    = f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true} 
   .actions
     %h2=t('poems.category')
     - Category.all.each do |category|

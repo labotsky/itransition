@@ -20,7 +20,7 @@ describe 'Authentication Pages' do
     before do
       fill_in 'user_email', with: 'sergey1993.08@mail.ru'
       fill_in 'user_password', with: '123456789'
-      find("input[type='submit']").click
+      find("input[value='Sign in']").click
     end
     it {should have_content('Please sign in')}  
   end
@@ -29,7 +29,7 @@ describe 'Authentication Pages' do
     before do
       fill_in 'user_email', with: 'sergey1993.test@mail.ru'
       fill_in 'user_password', with: '123456789'
-      find("input[type='submit']").click
+      find("input[value='Sign in']").click
     end
     it {should have_content('Logged in as '+ @user.email)}
     it {should have_link('Sign Out')}

@@ -9,7 +9,7 @@
       .nav-collapse.collapse
       - if user_signed_in?
         %p.navbar-text.pull-right
-          = image_tag current_user.avatar_url(:top)
+          = image_tag current_user.avatar_url(:top), class: 'avatar'
           =t('layouts.logged')
           = current_user.email
         %ul.nav
@@ -26,4 +26,4 @@
             = link_to t("layouts.signin"), new_user_session_path
           %li{class: "#{cp new_user_registration_path}"}
             = link_to t("layouts.signup"), new_user_registration_path     
-          = render 'layouts/menu'                         
+          = render 'layouts/menu'                                    

@@ -214,6 +214,9 @@ en:
     title: 'Welcome to the web site!'
     body: 'This simple web site. You can add your own poems and chapters to them, edit them, and delete them. Also, you can appreciate the poem to other users. Search for him and to export to pdf format.'
     button: 'Learn more'
+    search: 'Search'
+    find: 'All find:'
+    poem: 'poem'
   layouts:
     signin: 'Sign In'
     signup: 'Sign Up'

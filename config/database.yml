@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: itra_development
   pool: 5
-  username: sergey
+  username: postgres
   password: 12345
 
 test:
@@ -11,7 +11,7 @@ test:
   encoding: unicode
   database: itra_test
   pool: 5
-  username: sergey
+  username: postgres
   password: 12345
 
 production:
@@ -19,5 +19,5 @@ production:
   encoding: unicode
   database: itra_production
   pool: 5
-  username: sergey
+  username: postgres
   password: 12345

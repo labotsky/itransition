@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'pg'
+gem 'mysql2', '0.3.13'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -27,3 +28,4 @@ gem 'prawn'
 gem 'carrierwave'
 gem "rmagick"
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
+gem 'thinking-sphinx'

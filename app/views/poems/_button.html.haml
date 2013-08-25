@@ -3,7 +3,7 @@
     =toggle_like_button(poem, current_user) if user_signed_in?
     -unless user_signed_in?
       %i.icon-heart  
-    %span.count= poem.flaggings.count       
+    %span.count= poem.flaggings.size       
   %h2=poem.name
   %p=poem.description
   %p  
@@ -21,4 +21,4 @@
       =link_to new_paragraph_path(poem: poem), class:"btn btn-small" do
         %i.icon-plus
         =t('button.addparagraph')
-        %strong=poem.paragraphs.count
+        %strong=poem.paragraphs.size

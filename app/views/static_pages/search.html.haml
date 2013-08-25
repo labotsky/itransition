@@ -1,0 +1,6 @@
+.span9
+  %h1
+    =t('static_pages.find')
+    =pluralize(@poem.count, t('static_pages.poem'))
+  - @poem.each do |poem|                       
+    =render 'poems/button', poem: poem

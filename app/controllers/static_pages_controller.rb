@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @poem = Poem.all
+    @poem = Poem.includes(:flaggings, :paragraphs, :user)
   end
 
   def theme
@@ -9,5 +9,9 @@ class StaticPagesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def search
+    @poem = Poem.search(params[:search])
   end
 end

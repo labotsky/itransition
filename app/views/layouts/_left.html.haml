@@ -1,13 +1,16 @@
 .well.sidebar-nav.left
   %ul.nav.nav-list
     %li.nav-header=t('layouts.left.category')
-    -Category.all.each do |cat|
+    -Category.includes(:poems).each do |cat|
       %li
         =link_to cat do
           =cat.name
           %span.badge.badge-info.pull-right
-            = cat.poems.count
+            = cat.poems.size
       .clear
+= form_tag static_pages_search_path, method: :get do
+  =text_field_tag :search, params[:search], class: "input-medium search-query"
+  =submit_tag t('static_pages.search'), name: nil, class: "btn"         
 .well.sidebar-nav.left 
   %ul.nav.nav-list  
     %li.nav-header All Poems

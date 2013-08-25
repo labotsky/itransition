@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130825151349) do
+ActiveRecord::Schema.define(:version => 20130825194224) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -65,9 +65,10 @@ ActiveRecord::Schema.define(:version => 20130825151349) do
 
   create_table "tagships", :force => true do |t|
     t.integer  "tag_id"
-    t.integer  "poem_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
   end
 
   create_table "users", :force => true do |t|

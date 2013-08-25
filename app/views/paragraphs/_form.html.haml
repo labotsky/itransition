@@ -10,6 +10,10 @@
   .field
     = f.label t('poems.body')
     = f.text_area :body, rows: 10
+  .field
+    = f.label :tag_ids, "Tags"
+    = f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true}
+  %br    
   -unless params[:poem].nil?  
     = f.hidden_field :poem_id, value: params[:poem]
   .actions

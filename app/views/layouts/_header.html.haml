@@ -9,7 +9,7 @@
       .nav-collapse.collapse
       - if user_signed_in?
         %p.navbar-text.pull-right
-          = image_tag current_user.avatar_url(:top), class: 'avatar'
+          = image_tag current_user.avatar_url(:top)
           =t('layouts.logged')
           = current_user.email
         %ul.nav

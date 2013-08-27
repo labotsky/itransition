@@ -16,6 +16,7 @@
   .field
     = f.label :tag_ids, "Tags"
     = f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true}
+    = Poem.tag_counts.count
   .actions
     %h2=t('poems.category')
     - Category.all.each do |category|

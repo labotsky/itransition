@@ -9,7 +9,8 @@ Itra::Application.routes.draw do
     devise_for :users
     get "static_pages/home"
     get "static_pages/theme" 
-    get "static_pages/search"   
+    get "static_pages/search"
+    get 'tags/:tag', to: 'poems#index', as: :tag   
   end
   match '*path', to: redirect("/#{I18n.default_locale}/%{path}") 
   match '', to: redirect("/#{I18n.default_locale}") 

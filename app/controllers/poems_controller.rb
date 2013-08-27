@@ -4,7 +4,11 @@ class PoemsController < ApplicationController
   before_filter :authenticate_user!, except:[:show]
 
   def index
-    @poems = Poem.my_poems(current_user).includes(:flaggings, :paragraphs, :user)
+    if params[:tag]
+      @poems = Poem.tagged_with(params[:tag])
+    else
+      @poems = Poem.my_poems(current_user).includes(:flaggings, :paragraphs, :user)
+    end
   end
 
   def show

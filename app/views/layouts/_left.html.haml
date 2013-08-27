@@ -10,7 +10,10 @@
       .clear
 = form_tag static_pages_search_path, method: :get do
   =text_field_tag :search, params[:search], class: "input-medium search-query"
-  =submit_tag t('static_pages.search'), name: nil, class: "btn"         
+  =submit_tag t('static_pages.search'), name: nil, class: "btn"
+%div#tag_cloud
+  - tag_cloud(Tag.tag_counts, %w[s m l]) do |tag, css_class|
+    = link_to tag.name, tag_path(tag), class: css_class                   
 .well.sidebar-nav.left 
   %ul.nav.nav-list  
     %li.nav-header All Poems

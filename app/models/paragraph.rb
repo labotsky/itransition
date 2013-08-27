@@ -5,5 +5,5 @@ class Paragraph < ActiveRecord::Base
 
   belongs_to :poem
   has_many :tagships, as: :taggable
-  has_many :tags, through: :tagships  
+  has_many :tags, through: :tagships
 end

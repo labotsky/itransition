@@ -138,6 +138,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     method_source (0.8.2)
     middleware (0.1.0)
     mime-types (1.23)
@@ -271,6 +272,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   make_flaggable!
+  memcachier
   mysql2 (= 0.3.13)
   pg
   prawn

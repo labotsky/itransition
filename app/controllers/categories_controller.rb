@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @categories }
     end
   end
 
@@ -15,7 +14,6 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @category }
     end
   end
 
@@ -25,7 +23,6 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @category }
     end
   end
 
@@ -40,11 +37,10 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
+        expire_fragment("left_category")
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,14 +48,12 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-
     respond_to do |format|
       if @category.update_attributes(params[:category])
+        expire_fragment("left_category")
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,10 +62,9 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-
+    expire_fragment("left_category")
     respond_to do |format|
       format.html { redirect_to categories_url }
-      format.json { head :no_content }
     end
   end
 end

@@ -286,6 +286,7 @@ ru:
     logged: 'Вошел как'        
     left:
       category: 'Категории'
+      poem: 'Все поэмы'
   button:
     view: 'Посмотреть'
     edit: 'Редактировать'

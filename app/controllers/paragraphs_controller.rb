@@ -29,6 +29,7 @@ class ParagraphsController < ApplicationController
     @paragraph = Paragraph.new(params[:paragraph])
     respond_to do |format|
       if @paragraph.save
+        expire_fragment("left_paragraph")
         format.html { redirect_to @paragraph, notice: 'Paragraph was successfully created.' }
       else
         format.html { render action: "new" }
@@ -41,7 +42,8 @@ class ParagraphsController < ApplicationController
     @paragraph = Paragraph.find(params[:id])
     respond_to do |format|
       if @paragraph.update_attributes(params[:paragraph])
-        format.html { redirect_to @paragraph, notice: 'Paragraph was successfully updated.' }
+        expire_fragment("left_paragraph")
+        format.html { redirect_to @paragraph, notice: 'Paragraph was successfully updated.' }        
       else
         format.html { render action: "edit" }
       end
@@ -52,6 +54,7 @@ class ParagraphsController < ApplicationController
     @paragraph = Paragraph.find(params[:id])
     @paragraph.destroy
     respond_to do |format|
+      expire_fragment("left_paragraph")
       format.html { redirect_to paragraphs_url }
     end
   end

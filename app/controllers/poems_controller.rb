@@ -36,6 +36,8 @@ class PoemsController < ApplicationController
     @poem = Poem.new(params[:poem])
     respond_to do |format|
       if @poem.save
+        expire_fragment("left_category")
+        expire_fragment("best_poem")
         format.html { redirect_to @poem, notice: 'Poem was successfully created.' }
       else
         format.html { render action: "new" }
@@ -46,6 +48,8 @@ class PoemsController < ApplicationController
   def update
     @poem = Poem.find(params[:id])   
     if @poem.update_attributes(params[:poem])
+      expire_fragment("left_category")
+      expire_fragment("best_poem")
       redirect_to @poem
     end  
   end
@@ -66,6 +70,7 @@ class PoemsController < ApplicationController
     else
       current_user.flag(@poem, :like)
     end
+    expire_fragment("best_poem")
     respond_to do |format|
       format.js
     end

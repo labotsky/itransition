@@ -231,6 +231,7 @@ en:
     logged: 'Logged in as'  
     left:
       category: 'Category'
+      poem: 'All Poem'
   button:
     view: 'View'
     edit: 'Edit'

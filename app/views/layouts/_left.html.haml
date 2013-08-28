@@ -1,22 +1,25 @@
 .well.sidebar-nav.left
   %ul.nav.nav-list
     %li.nav-header=t('layouts.left.category')
-    -Category.includes(:poems).each do |cat|
-      %li
-        =link_to cat do
-          =cat.name
-          %span.badge.badge-info.pull-right
-            = cat.poems.size
-      .clear
+    - cache 'left_category', expires_in: 5.minutes do     
+      -Category.includes(:poems).each do |cat|
+        %li
+          =link_to cat do
+            =cat.name
+            %span.badge.badge-info.pull-right
+              = cat.poems.size
+        .clear    
 = form_tag static_pages_search_path, method: :get do
   =text_field_tag :search, params[:search], class: "input-medium search-query"
   =submit_tag t('static_pages.search'), name: nil, class: "btn"
-%div#tag_cloud
-  - tag_cloud(Tag.tag_counts, %w[s m l]) do |tag, css_class|
-    = link_to tag.name, tag_path(tag), class: css_class                   
+- cache 'tags', expires_in: 5.minutes do    
+  %div#tag_cloud
+    - tag_cloud(Tag.tag_counts, %w[s m l]) do |tag, css_class|
+      = link_to tag.name, tag_path(tag), class: css_class                   
 .well.sidebar-nav.left 
   %ul.nav.nav-list  
-    %li.nav-header All Poems
-    - Poem.all.each do |p|
-      %li
-        =link_to p.name, p
+    %li.nav-header=t('layouts.left.poem')
+    - cache 'left_paragraph', expires_in: 5.minutes do
+      - Poem.all.each do |p|
+        %li
+          =link_to p.name, p

@@ -1,7 +1,7 @@
 class PoemsController < ApplicationController
-
   before_filter :right_user, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!, except:[:show]
+  skip_before_filter :authenticate_user!, only:[:index, :show]
+  respond_to :html, :js
 
   def index
     if params[:tag]
@@ -34,29 +34,27 @@ class PoemsController < ApplicationController
 
   def create
     @poem = Poem.new(params[:poem])
-    respond_to do |format|
-      if @poem.save
-        expire_fragment("left_category")
-        expire_fragment("best_poem")
-        format.html { redirect_to @poem, notice: 'Poem was successfully created.' }
-      else
-        format.html { render action: "new" }
-      end
+    if @poem.save
+      expire_fragment("left_category")
+      expire_fragment(['best_poem', locale: I18n.locale])
+      flash[:notice] = 'Poem was successfully created.'
     end
+    respond_with(@poem)
   end
 
   def update
     @poem = Poem.find(params[:id])   
     if @poem.update_attributes(params[:poem])
       expire_fragment("left_category")
-      expire_fragment("best_poem")
-      redirect_to @poem
-    end  
+      expire_fragment(['best_poem', locale: I18n.locale])
+    end
+    respond_with(@poem)  
   end
 
   def destroy
     @poem = Poem.find(params[:id])
     @poem.destroy
+    respond_with(@poem)
   end
 
   def right_user
@@ -70,10 +68,8 @@ class PoemsController < ApplicationController
     else
       current_user.flag(@poem, :like)
     end
-    expire_fragment("best_poem")
-    respond_to do |format|
-      format.js
-    end
+    expire_fragment(['best_poem', locale: I18n.locale])
+    respond_with(@poem)
   end
 
 end

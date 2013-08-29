@@ -3,8 +3,7 @@ describe User do
 
   before do
     @user = User.new(email:'sergey1993.test@mail.ru', password: '123456789',
-                    password_confirmation: '123456789', confirmation_token: '',
-                    confirmed_at: Time.now)
+                    password_confirmation: '123456789')
   end
 
   subject {@user}

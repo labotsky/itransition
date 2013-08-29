@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessible :email, :password, :password_confirmation, :avatar
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :poems

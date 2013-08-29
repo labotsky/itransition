@@ -1,5 +1,5 @@
 class Paragraph < ActiveRecord::Base
-  #attr_accessible :body, :name, :poem_id
+  attr_accessible :body, :name, :tag_ids, :poem_id
   validates :name, presence: true
   validates :body, presence: true
 

@@ -2,9 +2,9 @@ require 'spec_helper.rb'
 describe 'User Pages' do
   let(:user) {FactoryGirl.create(:user)}
   before do
+    user.confirm!
     sign_in(user)
-    @poem = user.poems.create(name: 'lorem', body: 'lorem ipsum...', description: 'lorem description')
-    @poem_other = Poem.create(name: 'lorem_other', body: 'lorem ipsum_other...', description: 'lorem description_other', user_id: 2)
+    @poem = user.poems.create(name: 'lorem', body: 'lorem ipsum...', description: 'lorem description')  
   end
   subject{ page }
   describe 'should have my poems' do

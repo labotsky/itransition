@@ -2,7 +2,7 @@ Itra::Application.routes.draw do
   scope ":locale", locale: /en|ru/ do
     root to: 'static_pages#home'
     resources :paragraphs, except: [:index]
-    resources :categories, except: [:index]
+    resources :categories, only: [:show]
     resources :poems do
       get 'like', on: :member
     end

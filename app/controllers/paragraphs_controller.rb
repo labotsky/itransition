@@ -1,5 +1,7 @@
 class ParagraphsController < ApplicationController
-  before_filter :authenticate_user!, except:[:show]
+  skip_before_filter :authenticate_user!, only:[:show]
+  respond_to :html
+
   def show
     @paragraph = Paragraph.find(params[:id])
     respond_to do |format|
@@ -15,47 +17,34 @@ class ParagraphsController < ApplicationController
 
   def new
     @paragraph = Paragraph.new
-    respond_to do |format|
-      format.html
-    end
   end
-
 
   def edit
     @paragraph = Paragraph.find(params[:id])
   end
 
   def create
-    @paragraph = Paragraph.new(params[:paragraph])
-    respond_to do |format|
-      if @paragraph.save
-        expire_fragment("left_paragraph")
-        format.html { redirect_to @paragraph, notice: 'Paragraph was successfully created.' }
-      else
-        format.html { render action: "new" }
-      end
+    @paragraph = Paragraph.new(params[:paragraph])    
+    if @paragraph.save
+      expire_fragment("left_paragraph")
+      flash[:notice] = 'Paragraph was successfully created.'
     end
+    respond_with(@paragraph)
   end
-
 
   def update
     @paragraph = Paragraph.find(params[:id])
-    respond_to do |format|
-      if @paragraph.update_attributes(params[:paragraph])
-        expire_fragment("left_paragraph")
-        format.html { redirect_to @paragraph, notice: 'Paragraph was successfully updated.' }        
-      else
-        format.html { render action: "edit" }
-      end
+    if @paragraph.update_attributes(params[:paragraph])
+      expire_fragment("left_paragraph")
+      flash[:notice] = 'Paragraph was successfully updated.'
     end
+    respond_with(@paragraph)
   end
 
   def destroy
     @paragraph = Paragraph.find(params[:id])
     @paragraph.destroy
-    respond_to do |format|
-      expire_fragment("left_paragraph")
-      format.html { redirect_to paragraphs_url }
-    end
+    expire_fragment("left_paragraph")
+    respond_with(@paragraph)
   end
 end

@@ -26,6 +26,7 @@ group :test do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'devise'
@@ -38,4 +39,5 @@ gem 'thinking-sphinx'
 gem 'chosen-rails'
 gem 'hirb'
 gem 'dalli'
-gem 'memcachier'
+gem 'tinymce-rails'
+gem 'activeadmin'

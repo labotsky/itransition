@@ -1,6 +1,12 @@
 class PoemPdf < Prawn::Document
   def initialize(poem)
     super(top_margin: 40)
+    font_families.update("Verdana" => {
+      :normal => "app/fonts/verdana.ttf",
+      :italic => "app/fonts/verdanai.ttf",
+      :bold => "app/fonts/verdanab.ttf"
+    })
+    font "Verdana"    
     @poem = poem
     poem_title
     poem_chapters

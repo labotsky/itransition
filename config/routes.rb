@@ -7,6 +7,8 @@ Itra::Application.routes.draw do
       get 'like', on: :member
     end
     devise_for :users
+    ActiveAdmin.routes(self)
+    devise_for :admin_users, ActiveAdmin::Devise.config
     get "static_pages/home"
     get "static_pages/theme" 
     get "static_pages/search"

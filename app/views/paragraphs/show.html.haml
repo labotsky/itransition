@@ -1,5 +1,4 @@
 .paragraph
   %h1    
     = @paragraph.name
-  %p
-    = @paragraph.body
+  = @paragraph.body.html_safe

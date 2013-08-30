@@ -1,3 +1,4 @@
+= tinymce
 = form_for @poem do |f|
   - if @poem.errors.any?
     #error_explanation
@@ -9,10 +10,10 @@
   = f.text_field :name, autofocus: true      
   .field
     = f.label t('poems.description')
-    = f.text_area :description, rows: 5
+    = f.text_area :description, rows: 1, :class => "tinymce"
   .field
     = f.label t('poems.body')
-    = f.text_area :body, rows: 10
+    = f.text_area :body, rows: 10, :class => "tinymce"
   .field
     = f.label :tag_ids, "Tags"
     = f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true}   

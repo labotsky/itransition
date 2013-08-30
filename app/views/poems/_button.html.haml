@@ -5,7 +5,7 @@
       %i.icon-heart  
     %span.count= poem.flaggings.size       
   %h2=poem.name
-  %p=poem.description
+  %p=poem.description.html_safe
   %p  
     =link_to t('button.view'), poem_path(poem), class: "btn btn-small"
     =link_to poem_path(poem, format: "pdf"), class: "set btn btn-warning btn-small pull-right animated" do

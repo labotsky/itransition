@@ -33,7 +33,8 @@ describe 'Authentication Pages' do
     end
     it {should have_content('Logged in as '+ @user.email)}
     it {should have_link('Sign Out')}
-    it {should have_link('My Poems')}  
+    it {should have_link('My Poems')}
+    it {should have_selector('div.message')}  
   end
 
   describe 'should have right content in sign up page' do

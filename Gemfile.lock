@@ -314,6 +314,7 @@ DEPENDENCIES
   jquery-ui-rails
   less-rails
   make_flaggable!
+  meta_search
   mysql2 (= 0.3.13)
   pg
   prawn

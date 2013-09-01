@@ -6,6 +6,12 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    -flash.each do |key,msg|
+      %div{class: "message alert-#{key} alert", id: key}
+        %button{class: "close", "data-dismiss" => "alert"}
+          &times;
+        %h4 #{key.capitalize}! 
+        =content_tag :div, msg       
     = render "layouts/header"
     .container-fluid
       .row-fluid

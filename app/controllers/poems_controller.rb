@@ -37,7 +37,7 @@ class PoemsController < ApplicationController
     if @poem.save
       expire_fragment("left_category")
       expire_fragment(['best_poem', locale: I18n.locale])
-      flash[:notice] = 'Poem was successfully created.'
+      flash[:success] = 'Poem was successfully created.'
     end
     respond_with(@poem)
   end
@@ -47,6 +47,7 @@ class PoemsController < ApplicationController
     if @poem.update_attributes(params[:poem])
       expire_fragment("left_category")
       expire_fragment(['best_poem', locale: I18n.locale])
+      flash[:success] = 'Poem was successfully updated.'
     end
     respond_with(@poem)  
   end

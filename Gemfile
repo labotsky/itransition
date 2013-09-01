@@ -25,6 +25,7 @@ group :test do
   gem 'guard-spork'
 end
 
+gem "meta_search"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'twitter-bootstrap-rails'
@@ -35,9 +36,9 @@ gem 'prawn'
 gem 'carrierwave'
 gem "rmagick"
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
-gem 'thinking-sphinx'
 gem 'chosen-rails'
 gem 'hirb'
 gem 'dalli'
 gem 'tinymce-rails'
 gem 'activeadmin'
+gem 'thinking-sphinx'

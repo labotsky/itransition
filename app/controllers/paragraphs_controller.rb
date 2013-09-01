@@ -27,7 +27,7 @@ class ParagraphsController < ApplicationController
     @paragraph = Paragraph.new(params[:paragraph])    
     if @paragraph.save
       expire_fragment("left_paragraph")
-      flash[:notice] = 'Paragraph was successfully created.'
+      flash[:success] = 'Paragraph was successfully created.'
     end
     respond_with(@paragraph)
   end
@@ -36,7 +36,7 @@ class ParagraphsController < ApplicationController
     @paragraph = Paragraph.find(params[:id])
     if @paragraph.update_attributes(params[:paragraph])
       expire_fragment("left_paragraph")
-      flash[:notice] = 'Paragraph was successfully updated.'
+      flash[:success] = 'Paragraph was successfully updated.'
     end
     respond_with(@paragraph)
   end

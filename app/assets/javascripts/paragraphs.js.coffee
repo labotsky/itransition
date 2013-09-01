@@ -26,4 +26,6 @@ jQuery ->
     $(this).find('.set').show() 
     $(this).find('.set').removeClass('animated  lightSpeedOut').addClass('animated lightSpeedIn')
   $('.post-home').mouseout ->
-    $(this).find('.set').removeClass('animated lightSpeedIn').addClass('animated  lightSpeedOut')        
+    $(this).find('.set').removeClass('animated lightSpeedIn').addClass('animated  lightSpeedOut')
+
+  $('.message').addClass('animated bounceInUp').delay(5000).fadeOut(1000)       

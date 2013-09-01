@@ -6,6 +6,7 @@ class PoemsController < ApplicationController
   def index
     if params[:tag]
       @poems = Poem.tagged_with(params[:tag])
+      @paragraphs = Paragraph.tagged_with(params[:tag])
     else
       @poems = Poem.my_poems(current_user).includes(:flaggings, :paragraphs, :user)
     end

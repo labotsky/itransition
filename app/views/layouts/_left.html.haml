@@ -1,7 +1,7 @@
 .well.sidebar-nav.left
   %ul.nav.nav-list
     %li.nav-header=t('layouts.left.category')
-    - cache 'left_category', expires_in: 5.minutes do     
+    - cache ['left_category', locale: I18n.locale], expires_in: 5.minutes do     
       -Category.includes(:poems).each do |cat|
         %li
           =link_to cat do
@@ -12,7 +12,7 @@
 = form_tag static_pages_search_path, method: :get do
   =text_field_tag :search, params[:search], class: "input-medium search-query"
   =submit_tag t('static_pages.search'), name: nil, class: "btn"
-- cache 'tags', expires_in: 5.minutes do    
+- cache ['tags', locale: I18n.locale], expires_in: 5.minutes do    
   %div#tag_cloud
     - tag_cloud(Tag.tag_counts, %w[s m l]) do |tag, css_class|
       = link_to tag.name, tag_path(tag), class: css_class                   

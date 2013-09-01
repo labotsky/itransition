@@ -17,16 +17,4 @@
   .span9
     %h2
       %strong=t('poems.paragraphs')
-    - @poem.paragraphs.each do |paragraph|
-      .post-home
-        %h2=paragraph.name
-        %p=paragraph.body.html_safe
-        %p           
-          =link_to t('button.view'), paragraph_path(paragraph), class: "btn btn-small"          
-          -if user_signed_in? && @poem.user == current_user        
-            =link_to edit_paragraph_path(paragraph), class: "btn btn-small btn-info" do
-              %i.icon-edit
-              =t('button.edit')
-            =link_to paragraph_path, method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
-              %i.icon-trash
-              =t('button.delete')
+    =render @poem.paragraphs

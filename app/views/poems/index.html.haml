@@ -6,3 +6,5 @@
     =t('layouts.addpoems')   
   -@poems.each do |poem|
     =render 'button', poem: poem
+  -if @paragraphs 
+    =render @paragraphs

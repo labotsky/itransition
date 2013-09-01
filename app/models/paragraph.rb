@@ -6,4 +6,8 @@ class Paragraph < ActiveRecord::Base
   belongs_to :poem
   has_many :tagships, as: :taggable
   has_many :tags, through: :tagships
+
+  def self.tagged_with(id)
+    Tag.find(id).paragraphs
+  end  
 end

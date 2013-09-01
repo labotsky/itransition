@@ -57,3 +57,10 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  signin_d: "Please sign in"
+  signup_d: "Sign Up"
+  remember_d: "Remember me"
+  forgot_d: "Forgot your password?"
+  confirm_d: "Didn't receive confirmation instructions?"
+  resend_d: "Resend confirmation instructions"
+  send_d: "Send me instructions"            

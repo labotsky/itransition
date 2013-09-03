@@ -5,6 +5,7 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    =render "layouts/js_locale"
   %body
     -flash.each do |key,msg|
       %div{class: "message alert-#{key} alert", id: key}

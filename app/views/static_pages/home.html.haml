@@ -14,4 +14,6 @@
   - cache ['best_poem', locale: I18n.locale], expires_in: 5.minutes do        
     - best_poems(@poem).each do |poem|                       
       =render 'poems/button', poem: poem
+     
+
     

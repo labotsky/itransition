@@ -36,7 +36,7 @@ class PoemsController < ApplicationController
   def create
     @poem = Poem.new(params[:poem])
     if @poem.save
-      expire_fragment("left_category")
+      expire_fragment(['left_category', locale: I18n.locale])
       expire_fragment(['best_poem', locale: I18n.locale])
       flash[:success] = 'Poem was successfully created.'
     end
@@ -46,7 +46,7 @@ class PoemsController < ApplicationController
   def update
     @poem = Poem.find(params[:id])   
     if @poem.update_attributes(params[:poem])
-      expire_fragment("left_category")
+      expire_fragment(['left_category', locale: I18n.locale])
       expire_fragment(['best_poem', locale: I18n.locale])
       flash[:success] = 'Poem was successfully updated.'
     end

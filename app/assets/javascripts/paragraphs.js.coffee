@@ -21,6 +21,11 @@ jQuery ->
     width = parseInt(width)
     $('.paragraph').css('width', width-10+'px')
 
+  $('#width-plus').click ->
+    width = $('.paragraph').css('width')
+    width = parseInt(width)
+    $('.paragraph').css('width', width+10+'px')    
+
   $('.set').hide()  
   $('.post-home').mouseover ->
     $(this).find('.set').show() 

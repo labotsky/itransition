@@ -10,4 +10,13 @@ module PoemsHelper
       end    
     end
   end
+
+  def poem_chart_data
+    (2.weeks.ago.to_date..Date.today).map do |date|
+      {
+        date: date,
+        total: Poem.where("date(created_at) < ?", date).count
+      }
+    end  
+  end
 end

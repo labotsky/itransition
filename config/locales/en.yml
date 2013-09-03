@@ -232,6 +232,7 @@ en:
     left:
       category: 'Category'
       poem: 'All Poem'
+    total: 'Total'  
   button:
     view: 'View'
     edit: 'Edit'
@@ -251,5 +252,6 @@ en:
     size: 'Size:'
   paragraph:
     new: 'New Paragraph'
-    edit: 'Editing Paragraph'          
+    edit: 'Editing Paragraph'
+
             

@@ -283,7 +283,8 @@ ru:
       light: 'Светлая'
     mypoems: 'Мои поэмы'
     addpoems: 'Добавить поэму'
-    logged: 'Вошел как'        
+    logged: 'Вошел как'
+    total: 'Всего'        
     left:
       category: 'Категории'
       poem: 'Все поэмы'

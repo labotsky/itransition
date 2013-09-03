@@ -16,4 +16,9 @@
 //= require chosen-jquery
 //= require tinymce
 //= require twitter/bootstrap
-//= require_tree .
+//= require raphael
+//= require morris
+//= require paragraphs
+//= require chart
+//= require i18n
+//= require i18n/translations

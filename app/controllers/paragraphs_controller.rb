@@ -16,35 +16,41 @@ class ParagraphsController < ApplicationController
   end
 
   def new
-    @paragraph = Paragraph.new
+    @poem = poem
+    @paragraph = @poem.paragraphs.build
   end
 
   def edit
+    @poem = poem
     @paragraph = Paragraph.find(params[:id])
   end
 
-  def create
-    @paragraph = Paragraph.new(params[:paragraph])    
+  def create    
+    @paragraph = poem.paragraphs.build(params[:paragraph])    
     if @paragraph.save
       expire_fragment("left_paragraph")
       flash[:success] = 'Paragraph was successfully created.'
     end
-    respond_with(@paragraph)
+    respond_with(poem, @paragraph)
   end
 
-  def update
+  def update    
     @paragraph = Paragraph.find(params[:id])
     if @paragraph.update_attributes(params[:paragraph])
       expire_fragment("left_paragraph")
       flash[:success] = 'Paragraph was successfully updated.'
     end
-    respond_with(@paragraph)
+    respond_with(poem, @paragraph)
   end
 
   def destroy
     @paragraph = Paragraph.find(params[:id])
     @paragraph.destroy
     expire_fragment("left_paragraph")
-    respond_with(@paragraph)
+    respond_with(poem, @paragraph)
+  end
+
+  def poem
+    @poem = Poem.find(params[:poem_id])
   end
 end

@@ -9,5 +9,5 @@ class Paragraph < ActiveRecord::Base
 
   def self.tagged_with(id)
     Tag.find(id).paragraphs
-  end  
+  end
 end

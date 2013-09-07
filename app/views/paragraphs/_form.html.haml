@@ -1,5 +1,5 @@
 = tinymce
-= form_for @paragraph do |f|
+= form_for [@poem, @paragraph] do |f|
   - if @paragraph.errors.any?
     #error_explanation
       %ul

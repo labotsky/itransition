@@ -18,7 +18,7 @@
       =link_to poem_path(poem), method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
         %i.icon-trash
         =t('button.delete')
-      =link_to new_paragraph_path(poem: poem), class:"btn btn-small" do
+      =link_to new_poem_paragraph_path(poem_id: poem), class:"btn btn-small" do
         %i.icon-plus
         =t('button.addparagraph')
         %strong=poem.paragraphs.size

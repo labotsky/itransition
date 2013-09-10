@@ -21,7 +21,6 @@ class ParagraphsController < ApplicationController
   end
 
   def edit
-    @poem = poem
     @paragraph = Paragraph.find(params[:id])
   end
 

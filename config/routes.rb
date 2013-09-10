@@ -1,8 +1,8 @@
 Itra::Application.routes.draw do
-  scope ":locale", locale: /en|ru/ do
+  scope ":locale", shallow_path: ":locale", locale: /en|ru/ do
     root to: 'static_pages#home'
     resources :categories, only: [:show]
-    resources :poems do
+    resources :poems, shallow: true do
       get 'like', on: :member
       resources :paragraphs, except: [:index]
     end

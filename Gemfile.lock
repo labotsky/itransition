@@ -97,7 +97,11 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.4)
+    em-websocket (0.5.0)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.5.3)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.2.0)
@@ -118,6 +122,10 @@ GEM
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
+    guard-livereload (1.4.0)
+      em-websocket (>= 0.5.0)
+      guard (>= 1.8.0)
+      multi_json (~> 1.7)
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
@@ -136,6 +144,7 @@ GEM
     hashery (2.1.0)
     hike (1.2.3)
     hirb (0.7.1)
+    http_parser.rb (0.5.3)
     i18n (0.6.1)
     i18n-js (2.1.2)
       i18n
@@ -309,6 +318,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   ffaker
+  guard-livereload
   guard-rspec
   guard-spork
   haml-rails
@@ -324,6 +334,7 @@ DEPENDENCIES
   pg
   prawn
   rails (= 3.2.13)
+  rb-fsevent
   rmagick
   rspec-rails
   sass-rails (~> 3.2.3)

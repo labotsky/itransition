@@ -17,7 +17,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'rb-fsevent'
   gem 'guard-rspec'
+  gem 'guard-livereload'
 end
 
 group :test do
@@ -44,3 +46,4 @@ gem 'i18n-js'
 gem 'activeadmin'
 gem 'thinking-sphinx'
 gem 'awesome_print'
+

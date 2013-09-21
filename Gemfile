@@ -46,4 +46,4 @@ gem 'i18n-js'
 gem 'activeadmin'
 gem 'thinking-sphinx'
 gem 'awesome_print'
-
+gem 'inherited_resources'

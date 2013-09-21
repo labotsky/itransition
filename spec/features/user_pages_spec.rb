@@ -8,7 +8,7 @@ describe 'User Pages' do
   end
   subject{ page }
   describe 'should have my poems' do
-    before {visit poems_path}
+    before{visit poems_path}
     it {should have_content('My Poems')}
     it {should have_link('Add Poem', href: new_poem_path)}
     it {should have_content('lorem')}

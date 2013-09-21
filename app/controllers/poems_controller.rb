@@ -1,4 +1,4 @@
-class PoemsController < ApplicationController
+class PoemsController < InheritedResources::Base
   before_filter :right_user, only: [:edit, :update, :destroy]
   skip_before_filter :authenticate_user!, only:[:index, :show]
   respond_to :html, :js
@@ -12,10 +12,8 @@ class PoemsController < ApplicationController
     end
   end
 
-  def show
-    @poem = Poem.find(params[:id])
-    respond_to do |format|
-      format.html
+  def show    
+    super do |format|
       format.pdf do
         pdf = PoemPdf.new(@poem)
         send_data pdf.render, filename: "#{@poem.name.delete(' ')}.pdf",
@@ -25,39 +23,21 @@ class PoemsController < ApplicationController
     end
   end
 
-  def new
-    @poem = Poem.new
-  end
-
-  def edit
-    @poem = Poem.find(params[:id])
-  end
-
   def create
-    @poem = Poem.new(params[:poem])
-    if @poem.save
+    create! do
       expire_fragment(['left_category', locale: I18n.locale])
       expire_fragment(['best_poem', locale: I18n.locale])
-      flash[:success] = 'Poem was successfully created.'
     end
-    respond_with(@poem)
   end
 
   def update
-    @poem = Poem.find(params[:id])   
-    if @poem.update_attributes(params[:poem])
+    update! do
       expire_fragment(['left_category', locale: I18n.locale])
       expire_fragment(['best_poem', locale: I18n.locale])
-      flash[:success] = 'Poem was successfully updated.'
     end
-    respond_with(@poem)  
   end
 
-  def destroy
-    @poem = Poem.find(params[:id])
-    @poem.destroy
-    respond_with(@poem)
-  end
+private
 
   def right_user
     redirect_to root_url unless Poem.find(params[:id]).user == current_user

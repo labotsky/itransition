@@ -1,5 +1,7 @@
-class ParagraphsController < ApplicationController
+class ParagraphsController < InheritedResources::Base
   skip_before_filter :authenticate_user!, only:[:show]
+  belongs_to :poem, :optional => true
+  actions :all, except: [:index]
   respond_to :html
 
   def show
@@ -15,41 +17,15 @@ class ParagraphsController < ApplicationController
     end
   end
 
-  def new
-    @poem = poem
-    @paragraph = @poem.paragraphs.build
-  end
-
-  def edit
-    @paragraph = Paragraph.find(params[:id])
-  end
-
-  def create    
-    @paragraph = poem.paragraphs.build(params[:paragraph])    
-    if @paragraph.save
-      expire_fragment("left_paragraph")
-      flash[:success] = 'Paragraph was successfully created.'
-    end
-    respond_with(poem, @paragraph)
+  def create
+    create!{expire_fragment("left_paragraph")}
   end
 
   def update    
-    @paragraph = Paragraph.find(params[:id])
-    if @paragraph.update_attributes(params[:paragraph])
-      expire_fragment("left_paragraph")
-      flash[:success] = 'Paragraph was successfully updated.'
-    end
-    respond_with(poem, @paragraph)
+    update!{expire_fragment("left_paragraph")}
   end
 
-  def destroy
-    @paragraph = Paragraph.find(params[:id])
-    @paragraph.destroy
-    expire_fragment("left_paragraph")
-    respond_with(poem, @paragraph)
-  end
-
-  def poem
-    @poem = Poem.find(params[:poem_id])
+  def destroy    
+    destroy!{expire_fragment("left_paragraph")}
   end
 end

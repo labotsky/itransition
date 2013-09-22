@@ -1,7 +1,4 @@
-class CategoriesController < ApplicationController
+class CategoriesController < InheritedResources::Base
   skip_before_filter :authenticate_user!
-
-  def show
-    @category = Category.find(params[:id])
-  end
+  actions :show
 end

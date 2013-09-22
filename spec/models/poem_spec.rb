@@ -1,8 +1,8 @@
 require 'spec_helper.rb'
 describe Poem do
-  let(:user) {FactoryGirl.create(:user)}
+
   before do
-    @poem = user.poems.build(name: 'lorem', body: 'lorem ipsum...', description: 'lorem description')
+    @poem = Poem.new(name: 'lorem', body: 'lorem ipsum...', description: 'lorem description')
   end
 
   subject {@poem}

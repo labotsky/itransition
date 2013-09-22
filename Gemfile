@@ -17,14 +17,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'rb-fsevent'
   gem 'guard-rspec'
-  gem 'guard-livereload'
-end
-
-group :test do
-  gem 'spork'
-  gem 'guard-spork'
+  gem 'database_cleaner'
 end
 
 gem "meta_search"
@@ -46,4 +40,6 @@ gem 'i18n-js'
 gem 'activeadmin'
 gem 'thinking-sphinx'
 gem 'awesome_print'
+gem 'zeus'
+gem 'draper'
 

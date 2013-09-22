@@ -1,10 +1,7 @@
 require 'spec_helper.rb'
 describe Category do
-  let(:user) {FactoryGirl.create(:user)}
   before do
-    user.confirm!
-    @poem = user.poems.build(name: 'lorem', body: 'lorem ipsum...', description: 'lorem description')
-    @category = @poem.categories.build(name: 'lorem', description: 'lorem description')    
+    @category = Category.new(name: 'lorem', description: 'lorem description')    
   end
 
   subject {@category}

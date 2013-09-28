@@ -1,13 +1,8 @@
 require 'spec_helper.rb'
 describe 'Authentication Pages' do
   subject{ page }
-  before do
-  visit new_user_session_path
-  @user = User.new(email:'sergey1993.test@mail.ru', password: '123456789',
-                  password_confirmation: '123456789')
-  @user.confirm!
-  @user.save
-  end
+  let(:user) {create(:user)}
+  before{visit new_user_session_path}
 
   describe 'should have right content at authentication page' do
     it {should have_content('Please sign in')}
@@ -26,12 +21,8 @@ describe 'Authentication Pages' do
   end
 
   describe 'when right data sign in' do
-    before do
-      fill_in 'user_email', with: 'sergey1993.test@mail.ru'
-      fill_in 'user_password', with: '123456789'
-      find("input[value='Please sign in']").click
-    end
-    it {should have_content('Logged in as '+ @user.email)}
+    before{sign_in user}
+    it {should have_content('Logged in as '+ user.email)}
     it {should have_link('Sign Out')}
     it {should have_link('My Poems')}
     it {should have_selector('div.message')}  

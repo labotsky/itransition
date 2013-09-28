@@ -40,10 +40,8 @@ gem 'i18n-js'
 gem 'activeadmin'
 gem 'thinking-sphinx'
 gem 'awesome_print'
-<<<<<<< HEAD
 gem 'zeus'
 gem 'draper'
-
-=======
 gem 'inherited_resources'
->>>>>>> inherit_resources
+gem 'cancan'
+

@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 describe 'User Pages' do
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) {create(:user)}
   before do
     sign_in(user)
     @poem = user.poems.create(name: 'lorem', body: 'lorem ipsum...', description: 'lorem description')

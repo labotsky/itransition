@@ -7,18 +7,12 @@
   %h2=poem.name
   %p=poem.description.html_safe
   %p  
-    =link_to t('button.view'), poem_path(poem), class: "btn btn-small"
-    =link_to poem_path(poem, format: "pdf"), class: "set btn btn-warning btn-small pull-right animated" do
-      %i.icon-download-alt
-      PDF
-    -if user_signed_in? && poem.user == current_user
-      =link_to edit_poem_path(poem), class: "btn btn-small btn-info " do
-        %i.icon-edit
-        =t('button.edit')
-      =link_to poem_path(poem), method: :delete, confirm: 'You sure?', class:"btn btn-small btn-danger" do
-        %i.icon-trash
-        =t('button.delete')
-      =link_to new_poem_paragraph_path(poem_id: poem), class:"btn btn-small" do
-        %i.icon-plus
-        =t('button.addparagraph')
-        %strong=poem.paragraphs.size
+    =poem.view_button
+    =poem.pdf_button
+    -if user_signed_in?
+      -if can? :update, poem
+        =poem.edit_button
+      -if can? :destroy, poem     
+        =poem.delete_button
+      -if can? :create, Paragraph   
+        =poem.add_paragraph_button

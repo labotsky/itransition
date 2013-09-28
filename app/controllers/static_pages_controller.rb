@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   skip_before_filter :authenticate_user!
   def home
-    @poem = Poem.includes(:flaggings, :paragraphs, :user)
-   end
+    @poem = PoemDecorator.includes(:flaggings, :paragraphs, :user).decorate
+  end
 
   def theme
     @key = params[:key]

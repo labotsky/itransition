@@ -1,5 +1,6 @@
 class ParagraphsController < InheritedResources::Base
   skip_before_filter :authenticate_user!, only:[:show]
+  load_and_authorize_resource
   belongs_to :poem, :optional => true
   actions :all, except: [:index]
   respond_to :html

@@ -11,6 +11,8 @@
       %div
         = f.password_field :password_confirmation, :placeholder => "Confirmation", class: "input-block-level"
       %div
+        = f.collection_select :role, User::ROLES, :to_s, :humanize
+      %div
         = f.file_field :avatar
       %br  
       = f.submit t('signup_d'), class: "btn btn-large btn-primary"

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :avatar
+  attr_accessible :email, :password, :password_confirmation, :avatar, :role
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :poems
@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
   make_flagger
+  
+  ROLES = %w[admin moderator author banned]
 end

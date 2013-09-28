@@ -14,10 +14,10 @@ def make_users
   password = '123456789'
   5.times do
     email = Faker::Internet.email
-    user = User.create(email: email, password: password, password_confirmation: password)
+    user = User.create(email: email, password: password, password_confirmation: password, role: 'banned')
     user.confirm!
   end
-  user = User.create(email: 'sergey1993.08@mail.ru', password: password, password_confirmation: password)
+  user = User.create(email: 'sergey1993.08@mail.ru', password: password, password_confirmation: password, role:'admin')
   user.confirm!
 end
 

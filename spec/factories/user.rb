@@ -4,5 +4,10 @@ FactoryGirl.define do
     password              "password"
     password_confirmation "password"
     confirmed_at           Time.now
+    role 'admin'
+  end
+
+  factory :banned do
+    role "banned"
   end
 end

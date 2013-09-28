@@ -1,6 +1,6 @@
 class PoemsController < InheritedResources::Base
-  before_filter :right_user, only: [:edit, :update, :destroy]
   skip_before_filter :authenticate_user!, only:[:index, :show]
+  load_and_authorize_resource
   respond_to :html, :js
 
   def index
@@ -8,11 +8,11 @@ class PoemsController < InheritedResources::Base
       @poems = Poem.tagged_with(params[:tag])
       @paragraphs = Paragraph.tagged_with(params[:tag])
     else
-      @poems = Poem.my_poems(current_user).includes(:flaggings, :paragraphs, :user)
+      @poems = PoemDecorator.my_poems(current_user).includes(:flaggings, :paragraphs, :user).decorate
     end
   end
 
-  def show    
+  def show
     super do |format|
       format.pdf do
         pdf = PoemPdf.new(@poem)
@@ -38,10 +38,6 @@ class PoemsController < InheritedResources::Base
   end
 
 private
-
-  def right_user
-    redirect_to root_url unless Poem.find(params[:id]).user == current_user
-  end
 
   def like
     @poem = Poem.find(params[:id])

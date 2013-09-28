@@ -12,8 +12,18 @@ class Poem < ActiveRecord::Base
   make_flaggable :like
 
   scope :my_poems, ->(user) {where user_id: user}
+  before_update :set_permalink
+  before_create :set_permalink
 
   def self.tagged_with(id)
     Tag.find(id).poems
-  end  
+  end
+
+  def set_permalink
+    self.permalink = name.downcase.gsub(/[^0-9a-z]+/, ' ').strip.gsub(' ', '-') if name    
+  end 
+
+  def to_param
+    [self.id, self.permalink].join('-')
+  end 
 end
